@@ -11,6 +11,8 @@ import './element'
 import "./assets/reset.css";
 import "./assets/theme/index.scss";
 
+import 'font-awesome/css/font-awesome.css'
+
 Vue.config.productionTip = false
 
 new Vue({

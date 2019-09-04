@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <div class='header'> 
-      测试都没撒大梅赛德斯
-    </div>
     <transition name="fade" mode="out-in">
       <router-view/>
     </transition>

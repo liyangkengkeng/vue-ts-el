@@ -14,9 +14,12 @@ import {
   FormItem,
   Loading,
   Message,
+  MessageBox,
+  Menu,
+  Submenu,
+  MenuItem
 } from 'element-ui';
 Vue.prototype.$ELEMENT = { size: 'medium' };
-
 Vue.use(Input);
 Vue.use(Radio);
 Vue.use(Checkbox);
@@ -29,7 +32,11 @@ Vue.use(TimeSelect);
 Vue.use(TimePicker);
 Vue.use(Form);
 Vue.use(FormItem);
+Vue.use(Menu);
+Vue.use(Submenu);
+Vue.use(MenuItem);
 const LOADING_DIRECTIVE:any = Loading.directive;
 Vue.use(LOADING_DIRECTIVE);
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$message = Message;
+Vue.prototype.$alert = MessageBox;

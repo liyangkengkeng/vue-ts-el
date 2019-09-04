@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 
 module.exports = {

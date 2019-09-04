@@ -6,16 +6,18 @@ import baseURL from '../../setBaseUrl'
 import {
   Loading
 } from 'element-ui';
-const api:AxiosInstance = Axios.create({
-  baseURL,
-  timeout: 10000,
-  headers:{'Content-Type': 'application/json;charset=UTF-8'},
-  responseType: 'json',
-});
-
+// const api:AxiosInstance = Axios.create({
+//   baseURL,
+//   timeout: 10000,
+//   headers:{'Content-Type': 'application/json;charset=UTF-8'},
+//   responseType: 'json',
+// });
+Axios.defaults.baseURL = baseURL; // 配置axios请求的地址
+Axios.defaults.timeout = 5000;
+Axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
 //添加请求拦截器
-api.interceptors.request.use((config: any) => {
+Axios.interceptors.request.use((config: any) => {
   //在发送请求之前做某事，比如说 设置loading动画显示
   return config
 }, error => {
@@ -23,7 +25,7 @@ api.interceptors.request.use((config: any) => {
   return Promise.reject(error)
 });
 //添加响应拦截器
-api.interceptors.response.use(response => {
+Axios.interceptors.response.use(response => {
   //对响应数据做些事，比如说把loading动画关掉
   return response.data
 }, error => {
@@ -48,7 +50,7 @@ const $API = {
           background: 'rgba(0, 0, 0, 0.7)'
         });
       }
-      api({
+      Axios({
         method: 'get',
         url
       })
@@ -78,7 +80,7 @@ const $API = {
           background: 'rgba(0, 0, 0, 0.7)'
         });
       }
-      api({
+      Axios({
         method: 'post',
         url,
         data,
@@ -100,6 +102,6 @@ const $API = {
   }
 }
 
-api.defaults.withCredentials = true;
+Axios.defaults.withCredentials = true;
 
 export default $API
